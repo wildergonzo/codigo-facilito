@@ -1,0 +1,21 @@
+{
+	"songs": [{
+		"id": 0,
+		"name": "chantaje",
+		"artist": "shakira",
+		"song": "music/chantaje.mp3",
+		"image": "img/shakira.png"
+	}, {
+		"id": 1,
+		"name": "shaky shaky",
+		"artist": "daddy yankee",
+		"song": "music/shaky.mp3",
+		"image": "img/yankee.png"
+	}, {
+		"id": 2,
+		"name": "paint it black",
+		"artist": "rolling stones",
+		"song": "music/paintitblack.mp3",
+		"image": "img/rollingstones.png"
+	}]
+}
