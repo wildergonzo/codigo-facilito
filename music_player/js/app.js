@@ -1,9 +1,18 @@
 $(document).ready(function(){
+	initPlayer();
 	getSongs();
 });
 
-var audio = document.getElementById('player');
-var music;
+var audio, music;
+
+function initPlayer(){
+	$('#shuffle').click(function(){
+		$('#playlist').empty();
+		console.log('shuffled:', shuffle(music.songs));
+		getList(music);
+		playSong(0);
+	});
+}
 
 function getSongs(){
 	$.getJSON("js/app.json", function(mjson){
@@ -14,7 +23,7 @@ function getSongs(){
 }
 
 function playSong(id){
-	//var audio = document.getElementById('player');
+	audio = document.getElementById('player');
 	var long = music.songs;
 	if(id>=long.length){
 		console.log('list ended');
@@ -40,9 +49,14 @@ function getList(music) {
 }
 
 function scheduleSong(id){
-	//var audio = document.getElementById('player');
+	audio = document.getElementById('player');
 	audio.onended = function(){
 		console.log('song ended');
 		playSong(parseInt(id)+1);
 	}
+}
+
+function shuffle(array){
+	for(var random, temp, position = array.length; position; random = Math.floor(Math.random() * position), temp = array[--position], array[position] = array[random], array[random] = temp);
+		return array;
 }
